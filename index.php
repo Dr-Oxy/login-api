@@ -50,7 +50,7 @@
           password: pw.value,
         };
 
-        fetch("index.php", {
+        fetch("receive.php", {
           method: "post",
           body: "JSON.stringify(user)",
           headers: {
