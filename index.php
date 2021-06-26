@@ -58,10 +58,8 @@
         const email = el.value;
 
         if (email.trim() && !validateEmail(email)) {
-          el.classList.toggle('input-text-error');
-          alert('invalid email address');
+          el.classList.add('input-text-error');
         }
-
       }
 
       loginForm.addEventListener("submit", function () {
