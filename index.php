@@ -60,8 +60,13 @@
           .then(function (response) {
             return response.json();
           })
-          .then(function (text) {
-            console.log(text);
+          .then(function (user) {
+            localStorage.setItem("user", JSON.stringify(user))
+            // let user = localStorage.getItem('user');
+            // user = JSON.parse(user);
+            // localStorage.removeItem('user');
+            // localStorage.clear();
+            console.log(user);
           })
           .catch(function (error) {
             console.error(error);

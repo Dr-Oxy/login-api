@@ -3,7 +3,7 @@
 // var_dump($_POST);
 $data = [
     'email' => $_POST['email'],
-    'password' => $_POST['password']
+    'token' => md5($_POST['email'] . '' . $_POST['password'])
 ];
 
 echo json_encode($data);
