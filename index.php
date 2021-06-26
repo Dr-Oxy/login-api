@@ -58,7 +58,7 @@
 
          fetch("receive.php", {
           method: "post",
-          body: data,
+          body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
           },
