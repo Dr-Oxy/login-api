@@ -42,35 +42,65 @@
       const em = document.querySelector("#email");
       const pw = document.querySelector("#password");
 
+      function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      }
+
+
+      em.onchange = function handleEmailChange(evt) {
+        const email = evt.target.value;
+
+        if (!validateEmail(email)) {
+          alert('invalid email');
+        }
+
+      }
+
       loginForm.addEventListener("submit", function () {
         event.preventDefault();
 
-        //Login Validation
+        let isValid = true;
 
+        
+
+
+        //Login Validation
+        if (user.password.trim() == '' || user.password.length < 8) {
+          isValid = false;
+        }
+
+         if (user.email.trim() == '' || !validateEmail(user.email)) {
+          isValid = false;
+        }
     
 
         //1. FORM DATA + FETCH
 
-        const formData = new FormData(this);
+        if (isValid) {
+          const formData = new FormData(this);
 
-         fetch("login.php", {
-          method: "post",
-          body: formData
-        })
-          .then(function (response) {
-            return response.json();
+          fetch("login.php", {
+              method: "post",
+              body: formData
           })
-          .then(function (user) {
-            localStorage.setItem("user", JSON.stringify(user))
-            // let user = localStorage.getItem('user');
-            // user = JSON.parse(user);
-            // localStorage.removeItem('user');
-            // localStorage.clear();
-            console.log(user);
-          })
-          .catch(function (error) {
-            console.error(error);
-          });
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (user) {
+              localStorage.setItem("user", JSON.stringify(user))
+              // let user = localStorage.getItem('user');
+              // user = JSON.parse(user);
+              // localStorage.removeItem('user');
+              // localStorage.clear();
+              chioma;
+              console.log(user)
+            })
+            .catch(function (error) {
+              // 404 or 400 or 500 or generic
+              console.error(error);
+            });
+        }
       });
     </script>
   </body>
