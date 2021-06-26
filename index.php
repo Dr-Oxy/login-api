@@ -53,7 +53,7 @@
 
         const formData = new FormData(this);
 
-         fetch("receive.php", {
+         fetch("login.php", {
           method: "post",
           body: formData
         })
