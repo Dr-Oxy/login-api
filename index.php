@@ -53,8 +53,8 @@
 
         const formData = new FormData(this);
         
-        data.append("email", em.value);
-        data.append("password", pw.value);
+        // data.append("email", em.value);
+        // data.append("password", pw.value);
 
          fetch("receive.php", {
           method: "post",
