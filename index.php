@@ -52,7 +52,7 @@
 
         fetch("receive.php", {
           method: "post",
-          body: "JSON.stringify(user)",
+          body: JSON.stringify(user),
           headers: {
             "Content-Type": "application/json",
           },
@@ -64,9 +64,8 @@
             console.log(text);
           })
           .catch(function (error) {
-            console.warn(error);
+            console.error(error);
           });
-        console.log(JSON.stringify(user));
       });
     </script>
   </body>
