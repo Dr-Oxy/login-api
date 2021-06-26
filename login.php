@@ -6,4 +6,4 @@ $data = [
     'password' => $_POST['password']
 ];
 
-return json_encode($data);
+echo json_encode($data);
