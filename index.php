@@ -47,13 +47,18 @@
         return re.test(email);
       }
 
+      em.onfocus = function handleEmailChange(evt) {
+        const el = evt.target;
+        el.classList.remove('input-text-error');
+      }
+
 
       em.onchange = function handleEmailChange(evt) {
         const el = evt.target;
         const email = el.value;
 
         if (email.trim() && !validateEmail(email)) {
-          el.style.border = '1px solid red';
+          el.classList.toggle('input-text-error');
           alert('invalid email address');
         }
 

@@ -53,6 +53,9 @@ input[type="password"] {
 input[type="email"] {
   margin-bottom: 30px;
 }
+.input-text-error {
+  border: 2px solid red;
+}
 
 div.submit-btn {
   text-align: center;
