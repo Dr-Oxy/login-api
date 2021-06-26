@@ -58,7 +58,7 @@
           body: formData
         })
           .then(function (response) {
-            return response.text();
+            return response.json();
           })
           .then(function (text) {
             console.log(text);
