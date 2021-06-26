@@ -44,26 +44,44 @@
 
       loginForm.addEventListener("submit", function () {
         event.preventDefault();
-        
+
+        //Login Validation
+
+    
+
+        //1. FORM DATA + FETCH
+
         const data = new FormData();
         
         data.append("email", em.value);
         data.append("password", pw.value);
+
+         fetch("receive.php", {
+          method: "post",
+          body: data,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (text) {
+            return (text);
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
         
-        const xhr = new XMLHttpRequest();
-        
-        xhr.open("POST", "receive.php", true);
-        
-        xhr.send(data);
-        
+
+
+        //2. USER OBJECT + FETCH
        /* 
         const user = {
           email: em.value,
           password: pw.value,
         };
-        */
         
-        /*
         fetch("receive.php", {
           method: "post",
           body: JSON.stringify(user),
@@ -82,6 +100,20 @@
           });
           
           */
+
+        //3. FORM DATA + AJAX
+        /*
+        const data = new FormData();
+        
+        data.append("email", em.value);
+        data.append("password", pw.value);
+        
+        const xhr = new XMLHttpRequest();
+        
+        xhr.open("POST", "receive.php", true);
+        
+        xhr.send(data);
+        */
       });
     </script>
   </body>
