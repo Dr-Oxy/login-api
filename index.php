@@ -44,12 +44,26 @@
 
       loginForm.addEventListener("submit", function () {
         event.preventDefault();
-
+        
+        const data = new FormData();
+        
+        data.append("email", em.value);
+        data.append("password", pw.value);
+        
+        const xhr = new XMLHttpRequest();
+        
+        xhr.open("POST", "receive.php", true);
+        
+        xhr.send(data);
+        
+       /* 
         const user = {
           email: em.value,
           password: pw.value,
         };
-
+        */
+        
+        /*
         fetch("receive.php", {
           method: "post",
           body: JSON.stringify(user),
@@ -66,6 +80,8 @@
           .catch(function (error) {
             console.error(error);
           });
+          
+          */
       });
     </script>
   </body>
