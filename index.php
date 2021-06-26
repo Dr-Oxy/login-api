@@ -58,16 +58,12 @@
 
          fetch("receive.php", {
           method: "post",
-          body: formData,
-          headers: {
-            "Content-Type": "application/json",
-          },
+          body: formData
         })
           .then(function (response) {
             return response.text();
           })
           .then(function (text) {
-            return (text);
             console.log(text);
           })
           .catch(function (error) {
