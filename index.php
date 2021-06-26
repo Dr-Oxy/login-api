@@ -49,10 +49,12 @@
 
 
       em.onchange = function handleEmailChange(evt) {
-        const email = evt.target.value;
+        const el = evt.target;
+        const email = el.value;
 
-        if (!validateEmail(email)) {
-          alert('invalid email');
+        if (email.trim() && !validateEmail(email)) {
+          el.style.border = '1px solid red';
+          alert('invalid email address');
         }
 
       }
