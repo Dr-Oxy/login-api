@@ -51,14 +51,14 @@
 
         //1. FORM DATA + FETCH
 
-        const data = new FormData();
+        const formData = new FormData(this);
         
         data.append("email", em.value);
         data.append("password", pw.value);
 
          fetch("receive.php", {
           method: "post",
-          body: JSON.stringify(data),
+          body: formData,
           headers: {
             "Content-Type": "application/json",
           },
@@ -68,6 +68,7 @@
           })
           .then(function (text) {
             return (text);
+            console.log(text);
           })
           .catch(function (error) {
             console.error(error);
