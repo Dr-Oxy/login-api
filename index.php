@@ -53,7 +53,7 @@
       }
 
 
-      em.onchange = function handleEmailChange(evt) {
+      em.onblur = function handleEmailChange(evt) {
         const el = evt.target;
         const email = el.value;
 
