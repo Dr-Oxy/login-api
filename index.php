@@ -47,11 +47,16 @@
 
         //Login Validation
 
-         //1. FORM DATA + FETCH
+    
+
+        //1. FORM DATA + FETCH
 
         const formData = new FormData(this);
+        
+        // data.append("email", em.value);
+        // data.append("password", pw.value);
 
-         fetch("login.php", {
+         fetch("receive.php", {
           method: "post",
           body: formData
         })
@@ -63,8 +68,51 @@
           })
           .catch(function (error) {
             console.error(error);
-          });    
+          });
+        
+
+
+        //2. USER OBJECT + FETCH
+       /* 
+        const user = {
+          email: em.value,
+          password: pw.value,
+        };
+        
+        fetch("receive.php", {
+          method: "post",
+          body: JSON.stringify(user),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (text) {
+            console.log(text);
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+          
+          */
+
+        //3. FORM DATA + AJAX
+        /*
+        const data = new FormData();
+        
+        data.append("email", em.value);
+        data.append("password", pw.value);
+        
+        const xhr = new XMLHttpRequest();
+        
+        xhr.open("POST", "receive.php", true);
+        
+        xhr.send(data);
+        */
       });
     </script>
   </body>
 </html>
+
